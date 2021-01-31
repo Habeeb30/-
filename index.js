@@ -7,7 +7,7 @@ const fs = require('fs')
 const { YTSearcher } = require('ytsearcher');
 
 const searcher = new YTSearcher({
-    key: "AIzaSyCuXznysZJHY0ZRIixAiq9LF-X2v-M_nUc",
+    key: process.env.youtube_api,
     revealed: true
 });
 
@@ -69,4 +69,4 @@ client.on("message", async(message) => {
         
 })
 
-client.login("ODAzODg1NDc3MDM5MTc3NzI4.YBESsQ.qqbBTTHoe7aO9D4dLavn0EAT3gE")
+client.login(process.env.token)
