@@ -12,6 +12,7 @@ module.exports.run = (client, message, args, queue, searcher) => {
         .addField("'?'fskip (fs) : Skip To The Selected Queue Number", "---------------")
         .addField("'?'lyrics (ly) : Get Lyrics For The Currently Playing Song", "---------------")
         .addField("'?'loop (l) : Toggle Music Loop", "---------------")
+        .addField("'?'shuffle (sh) : For Shuffle Songs", "---------------")
         .setColor("#00f6ef")
     message.channel.send(embed);
 }

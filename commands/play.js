@@ -84,7 +84,7 @@ module.exports.run = async (client, message, args, queue, searcher) => {
                 .addField("Song duration: ", dur)
                 .addField("Song Place", serverQueue.songs.lastIndexOf(song) + 1)
                 .setThumbnail(song.thumbnail)
-                .setColor("PURPLE")
+                .setColor("#ff585b")
             return message.channel.send(msg);
         }
     }
@@ -92,10 +92,10 @@ module.exports.run = async (client, message, args, queue, searcher) => {
         const serverQueue = queue.get(guild.id);
         if(!song){
             timer = setTimeout(function() {
-                serverQueue.txtChannel.send("I didn't have anything to do so I just left!");
+                serverQueue.txtChannel.send("ɪ ᴅɪᴅɴ'ᴛ ʜᴀᴠᴇ ᴀɴyᴛʜɪɴɢ ᴛᴏ ᴅᴏ ꜱᴏ ɪ ᴊᴜꜱᴛ ʟᴇꜰᴛ!");
                 serverQueue.vChannel.leave();
                 queue.delete(guild.id);
-            }, 5000)
+            }, 300000)
             return;
         }
         const dispatcher = serverQueue.connection
@@ -119,7 +119,7 @@ module.exports.run = async (client, message, args, queue, searcher) => {
                 .addField(serverQueue.songs[0].title, "----------")
                 .addField("Song duration: ", dur)
                 .setThumbnail(serverQueue.songs[0].thumbnail)
-                .setColor("PURPLE")
+                .setColor("#08ffca")
             return message.channel.send(msg);
     }
 }

@@ -28,5 +28,5 @@ function shuffleQueue (squeue, message){
 
 module.exports.config = {
     name: "shuffle",
-    aliases: []
+    aliases: ["sh"]
 }
