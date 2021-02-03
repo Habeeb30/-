@@ -1,3 +1,5 @@
+const Discord = require("discord.js");
+
 module.exports.run = async (client, message, args, queue, searcher) => {
     const serverQueue = queue.get(message.guild.id);
     if(!serverQueue)
