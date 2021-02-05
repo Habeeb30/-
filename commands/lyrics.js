@@ -4,7 +4,7 @@ const lyricsFinder = require('lyrics-finder');
 
 module.exports.run = async(client, message, args, queue, searcher) => {
     if (args.length < 1)
-        return message.channel.send("Please enter the artist name first. !lyrics <Artist Name>")
+        return message.channel.send("ᴩʟᴇᴀꜱᴇ ᴇɴᴛᴇʀ ᴛʜᴇ ᴀʀᴛɪꜱᴛ ɴᴀᴍᴇ ꜰɪʀꜱᴛ. !ʟyʀɪᴄꜱ <ᴀʀᴛɪꜱᴛ ɴᴀᴍᴇ>")
     
     let artist = args.join(" ");
     let songName = '';
@@ -14,7 +14,7 @@ module.exports.run = async(client, message, args, queue, searcher) => {
     const messageFilter = m => m.author.id === message.author.id;
     const reactionFilter = (reaction, user) => ['⬅️', '➡️'].includes(reaction.emoji.name) && (message.author.id === user.id)
 
-    message.channel.send("Please enter the song name now");
+    message.channel.send("ᴩʟᴇᴀꜱᴇ ᴇɴᴛᴇʀ ᴛʜᴇ ꜱᴏɴɢ ɴᴀᴍᴇ ɴᴏᴡ");
     await message.channel.awaitMessages(messageFilter, { max: 1, time: 15000 }).then(async collected => {
         songName = collected.first().content;
         await finder (artist, songName, message, pages)

@@ -3,15 +3,15 @@ const Discord = require("discord.js");
 module.exports.run = async (client, message, args, queue, searcher) => {
     const serverQueue = queue.get(message.guild.id);
     if(!serverQueue)
-        return message.channel.send("There is no music currently playing!");
+        return message.channel.send("ᴛʜᴇʀᴇ ɪꜱ ɴᴏ ᴍᴜꜱɪᴄ ᴄᴜʀʀᴇɴᴛʟy ᴩʟᴀyɪɴɢ!");
     if(message.member.voice.channel != message.guild.me.voice.channel)
-        return message.channel.send("You are not in the voice channel!")
+        return message.channel.send("Yᴏᴜ ᴀʀᴇ ɴᴏᴛ ɪɴ ᴛʜᴇ ᴠᴏɪᴄᴇ ᴄʜᴀɴɴᴇʟ!")
 
     let currentPage = 0;
     
     const embeds = embedGenerator(serverQueue)
 
-    const queueEmbed = await message.channel.send(`Lyrics page: ${currentPage+1}/${embeds.length}`, embeds[currentPage])
+    const queueEmbed = await message.channel.send(`ʟyʀɪᴄꜱ ᴩᴀɢᴇ: ${currentPage+1}/${embeds.length}`, embeds[currentPage])
     await queueEmbed.react('⬅️');
     await queueEmbed.react('➡️');
 
@@ -22,13 +22,13 @@ module.exports.run = async (client, message, args, queue, searcher) => {
         if(reaction.emoji.name === '➡️'){
             if(currentPage < embeds.length-1){
                 currentPage+=1;
-                queueEmbed.edit(`Lyrics page: ${currentPage+1}/${embeds.length}`, embeds[currentPage]);
+                queueEmbed.edit(`ʟyʀɪᴄꜱ ᴩᴀɢᴇ: ${currentPage+1}/${embeds.length}`, embeds[currentPage]);
                 message.reactions.resolve(reaction).users.remove(user)
             }
         }else if(reaction.emoji.name === '⬅️'){
             if (currentPage !== 0){
                 currentPage -= 1;
-                queueEmbed.edit(`Lyrics page: ${currentPage+1}/${embeds.length}`, embeds[currentPage])
+                queueEmbed.edit(`ʟyʀɪᴄꜱ ᴩᴀɢᴇ: ${currentPage+1}/${embeds.length}`, embeds[currentPage])
                 message.reactions.resolve(reaction).users.remove(user)
             }
         }

@@ -2,13 +2,13 @@ module.exports.run = async (client, message, args, queue, searcher) => {
     const serverQueue = queue.get(message.guild.id);
 
     if(!serverQueue)
-        return message.channel.send("There is no music currently playing!");
+        return message.channel.send("ᴛʜᴇʀᴇ ɪꜱ ɴᴏ ᴍᴜꜱɪᴄ ᴄᴜʀʀᴇɴᴛʟy ᴩʟᴀyɪɴɢ!");
     if(message.member.voice.channel != message.guild.me.voice.channel)
-        return message.channel.send("Please join the same voice chat as me");
+        return message.channel.send("ᴩʟᴇᴀꜱᴇ ᴊᴏɪɴ ᴛʜᴇ ꜱᴀᴍᴇ ᴠᴏɪᴄᴇ ᴄʜᴀᴛ ᴀꜱ ᴍᴇ");
     let roleN = message.guild.roles.cache.find(role => role.name === "DJ")
 
     if(!message.member.roles.cache.get(roleN.id))
-        return message.channel.send("You don't have the DJ role");
+        return message.channel.send("Yᴏᴜ ᴅᴏɴ'ᴛ ʜᴀᴠᴇ ᴛʜᴇ ᴅᴊ ʀᴏʟᴇ");
 
     shuffleQueue(serverQueue.songs, message);
 }
@@ -22,7 +22,7 @@ function shuffleQueue (squeue, message){
         squeue[i] = squeue[j];
         squeue[j] = temp;
     }
-    message.channel.send("The queue has been shuffled");
+    message.channel.send("ᴛʜᴇ qᴜᴇᴜᴇ ʜᴀꜱ ʙᴇᴇɴ ꜱʜᴜꜰꜰʟᴇᴅ");
     return squeue;
 }
 

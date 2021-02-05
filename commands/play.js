@@ -6,26 +6,26 @@ let timer;
 module.exports.run = async (client, message, args, queue, searcher) => {
     const vc = message.member.voice.channel;
     if(!vc)
-        return message.channel.send("Please join a voice channel first");
+        return message.channel.send("ᴩʟᴇᴀꜱᴇ ᴊᴏɪɴ ᴀ ᴠᴏɪᴄᴇ ᴄʜᴀɴɴᴇʟ ꜰɪʀꜱᴛ");
     if (args.length < 1)
-        return message.channel.send("Please enter something to search")
+        return message.channel.send("ᴩʟᴇᴀꜱᴇ ᴇɴᴛᴇʀ ꜱᴏᴍᴇᴛʜɪɴɢ ᴛᴏ ꜱᴇᴀʀᴄʜ")
     let url = args.join("");
     if(url.match(/^https?:\/\/(www.youtube.com|youtube.com)\/playlist(.*)$/)){
         try{
             await ytpl(url).then(async playlist => {
-                message.channel.send(`The playlist: "${playlist.title}" has been added`)
+                message.channel.send(`ᴛʜᴇ ᴩʟᴀyʟɪꜱᴛ: "${playlist.title}" ʜᴀꜱ ʙᴇᴇɴ ᴀᴅᴅᴇᴅ`)
                 playlist.items.forEach(async item => {
                     await videoHandler(await ytdl.getInfo(item.shortUrl), message, vc, true);
                 })
             })
         }catch(err){
-            return message.channel.send(`Please insert a valid link or make sure that the playlist is visible\n${err}`)
+            return message.channel.send(`ᴩʟᴇᴀꜱᴇ ɪɴꜱᴇʀᴛ ᴀ ᴠᴀʟɪᴅ ʟɪɴᴋ ᴏʀ ᴍᴀᴋᴇ ꜱᴜʀᴇ ᴛʜᴀᴛ ᴛʜᴇ ᴩʟᴀyʟɪꜱᴛ ɪꜱ ᴠɪꜱɪʙʟᴇ\n${err}`)
         }
     }
     else{
         let result = await searcher.search(args.join(" "), { type: "video" })
         if(result.first == null)
-            return message.channel.send("There are no results found");
+            return message.channel.send("ᴛʜᴇʀᴇ ᴀʀᴇ ɴᴏ ʀᴇꜱᴜʟᴛꜱ ꜰᴏᴜɴᴅ");
         try {
         let songInfo = await ytdl.getInfo(result.first.url);
         return videoHandler(songInfo, message, vc)
@@ -68,7 +68,7 @@ module.exports.run = async (client, message, args, queue, searcher) => {
             }catch (err){
                 console.error(err);
                 queue.delete(message.guild.id);
-                return message.channel.send(`Unable to join the voice chat ${err}`)
+                return message.channel.send(`ᴜɴᴀʙʟᴇ ᴛᴏ ᴊᴏɪɴ ᴛʜᴇ ᴠᴏɪᴄᴇ ᴄʜᴀᴛ ${err}`)
             }
         }else{
             serverQueue.songs.push(song);

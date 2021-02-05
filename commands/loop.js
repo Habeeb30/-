@@ -1,9 +1,9 @@
 module.exports.run = (client, message, args, queue, searcher) => {
     const serverQueue = queue.get(message.guild.id)
     if(!serverQueue)
-        return message.channel.send("There is no music currently playing!");
+        return message.channel.send("ᴛʜᴇʀᴇ ɪꜱ ɴᴏ ᴍᴜꜱɪᴄ ᴄᴜʀʀᴇɴᴛʟy ᴩʟᴀyɪɴɢ!");
     if(message.member.voice.channel != message.guild.me.voice.channel)
-        return message.channel.send("You are not in the voice channel!")
+        return message.channel.send("Yᴏᴜ ᴀʀᴇ ɴᴏᴛ ɪɴ ᴛʜᴇ ᴠᴏɪᴄᴇ ᴄʜᴀɴɴᴇʟ!")
 
     switch(args[0].toLowerCase()){
         case 'all':
@@ -11,9 +11,9 @@ module.exports.run = (client, message, args, queue, searcher) => {
             serverQueue.loopone = false;
 
             if(serverQueue.loopall === true)
-                message.channel.send("Loop all has been turned on!");
+                message.channel.send("ʟᴏᴏᴩ ᴀʟʟ ʜᴀꜱ ʙᴇᴇɴ ᴛᴜʀɴᴇᴅ ᴏɴ!");
             else
-                message.channel.send("Loop all has been truned off!");
+                message.channel.send("ʟᴏᴏᴩ ᴀʟʟ ʜᴀꜱ ʙᴇᴇɴ ᴛᴜʀɴᴇᴅ ᴏꜰꜰ!");
 
         break;
     case 'one':
@@ -21,9 +21,9 @@ module.exports.run = (client, message, args, queue, searcher) => {
         serverQueue.loopall = false;
 
         if(serverQueue.loopone === true)
-            message.channel.send("Loop one has been turned on!");
+            message.channel.send("ʟᴏᴏᴩ ᴏɴᴇ ʜᴀꜱ ʙᴇᴇɴ ᴛᴜʀɴᴇᴅ ᴏɴ!");
         else
-            message.channel.send("Loop one has been truned off!");
+            message.channel.send("ʟᴏᴏᴩ ᴏɴᴇ ʜᴀꜱ ʙᴇᴇɴ ᴛᴜʀɴᴇᴅ ᴏꜰꜰ!");
         break;
     case 'off':
             serverQueue.loopall = false;
@@ -32,7 +32,7 @@ module.exports.run = (client, message, args, queue, searcher) => {
             message.channel.send("Loop has been turned off!");
         break;
     default:
-        message.channel.send("Please specify what loop you want. !loop <one/all/off>"); 
+        message.channel.send("ᴩʟᴇᴀꜱᴇ ꜱᴩᴇᴄɪꜰy ᴡʜᴀᴛ ʟᴏᴏᴩ yᴏᴜ ᴡᴀɴᴛ. ?ʟᴏᴏᴩ <ᴏɴᴇ/ᴀʟʟ/ᴏꜰꜰ>"); 
     }
 }
 

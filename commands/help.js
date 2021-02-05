@@ -4,7 +4,7 @@ module.exports.run = (client, message, args, queue, searcher) => {
         .setTitle("ꜰʀɪᴇɴᴅꜱ ᴍᴜꜱɪᴄ ʜᴇʟᴩ")
         .addField("List Of All Commands", "~")
         .addField("'?'play (p) : Playing Audio From YouTube", "---------------")
-        .addField("'?'stop : Stops The Music", "---------------")
+        .addField("'?'stop (dc) : Stops The Music", "---------------")
         .addField("'?'pause : Pause The Currently Playing Music", "---------------")
         .addField("'?'resume (r) : Resume Currently Playing Music", "---------------")
         .addField("'?'queue (q) : Show The Music Queue And Now Playing", "---------------")
