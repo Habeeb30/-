@@ -20,7 +20,10 @@ fs.readdir("./commands/", (e, f) => {
     f.forEach(file => {
         if(!file.endsWith(".js")) return
         console.log(`${file} has been loaded`)
-        config.aliases.forEach(alias => {
+        let cmd = require(`./commands/${file}`);
+        let cmdName = cmd.config.name;
+        client.commands.set(cmdName, cmd)
+        cmd.config.aliases.forEach(alias => {
             client.aliases.set(alias, cmdName);
         })
     })
@@ -47,7 +50,7 @@ client.on("guildMemberAdd", member => {
 
 
 client.on("message", async(message) => {
-    const prefix = '?';
+    const prefix = '!';
 
     if(!message.content.startsWith(prefix)) return
     
