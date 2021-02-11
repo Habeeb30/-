@@ -21,7 +21,7 @@ fs.readdir("./commands/", (e, f) => {
         if(!file.endsWith(".js")) return
         console.log(`${file} has been loaded`)
         config.aliases.forEach(alias => {
-        client.aliases.set(alias, cmdName);
+        client.aliases.set(alias);
         })
     })
 })
