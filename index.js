@@ -20,11 +20,9 @@ fs.readdir("./commands/", (e, f) => {
     f.forEach(file => {
         if(!file.endsWith(".js")) return
         console.log(`${file} has been loaded`)
-        let cmd = require(`./commands/${file}`);
-        let cmdName = cmd.config.name;
         client.commands.set(cmdName, cmd)
         cmd.config.aliases.forEach(alias => {
-            client.aliases.set(alias, cmdName);
+        client.aliases.set(alias, cmdName);
         })
     })
 })
