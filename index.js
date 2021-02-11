@@ -20,11 +20,9 @@ fs.readdir("./commands/", (e, f) => {
     f.forEach(file => {
         if(!file.endsWith(".js")) return
         console.log(`${file} has been loaded`)
-        config.aliases.forEach(alias => {
         client.aliases.set(alias);
         })
     })
-})
 
 const queue = new Map();
 
