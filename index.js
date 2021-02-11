@@ -20,7 +20,6 @@ fs.readdir("./commands/", (e, f) => {
     f.forEach(file => {
         if(!file.endsWith(".js")) return
         console.log(`${file} has been loaded`)
-        client.aliases.set(alias);
         })
     })
 
