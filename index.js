@@ -34,7 +34,7 @@ client.on("guildMemberAdd", member => {
 
 
 client.on("message", async(message) => {
-    const prefix = '!';
+    const prefix = '?';
 
     if(!message.content.startsWith(prefix)) return
     

@@ -10,7 +10,7 @@ const parseTime = function(milliseconds) {
       +(seconds?(written=true,seconds+" seconds"):"")+(written?" ":"");
 };
 module.exports.run = async (client,message,args) => {
-    var neko = client.users.find("id", "377271843502948354");
+    var neko = client.users.find("id", "803885477039177728");
 	const RichEmbed = new Discord.RichEmbed()
 	   .setColor(`${message.member.displayHexColor}`)
 	   .setFooter(`Requested by: ${message.member.displayName}`, `${message.author.avatarURL}`)
